@@ -57,9 +57,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="shop" element={<Shop addToCart={addToCart} />} />
+        <Route path="cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} />}/>
       </Routes>
-      <div>Total Items in Cart : {cartQuantity}</div>
-      <Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} />
     </div>
   );
 }
