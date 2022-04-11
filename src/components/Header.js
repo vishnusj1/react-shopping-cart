@@ -17,7 +17,9 @@ const Header = ({ quantity }) => {
             <Link to="cart">
               <FontAwesomeIcon icon={faCartShopping} className="fa-xl" />
             </Link>
-            {quantity > 0 && <div className="badge">{quantity}</div>}
+            <div className={`badge ${quantity > 0 ? "active" : "disabled"}`}>
+              {quantity}
+            </div>
           </li>
         </ul>
       </nav>
