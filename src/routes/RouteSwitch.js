@@ -1,12 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import Header from "../components/Header";
 import App from "../App";
 
 const RouteSwitch = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={App} />
-      </Routes>
+      <Header />
+      <App />
     </BrowserRouter>
   );
 };
