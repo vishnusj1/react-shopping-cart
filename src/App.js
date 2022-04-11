@@ -1,5 +1,7 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { useState } from "react";
+import Header from "./components/Header";
 import Cart from "./routes/Cart";
 import Shop from "./routes/Shop";
 import HomePage from "./routes/HomePage";
@@ -38,15 +40,14 @@ function App() {
       setCart([...Cart]);
       return;
     }
-    const NewCart = cart
-      .map((product) => {
-        if (product.id === id) {
-          return { ...product, qty: product.qty - 1 };
-        } else {
-          return product;
-        }
-      });
-    
+    const NewCart = cart.map((product) => {
+      if (product.id === id) {
+        return { ...product, qty: product.qty - 1 };
+      } else {
+        return product;
+      }
+    });
+
     setCart([...NewCart]);
   };
 
@@ -54,11 +55,23 @@ function App() {
 
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="shop" element={<Shop addToCart={addToCart} />} />
-        <Route path="cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} />}/>
-      </Routes>
+      <Router>
+        <Header quantity={cartQuantity} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="shop" element={<Shop addToCart={addToCart} />} />
+          <Route
+            path="cart"
+            element={
+              <Cart
+                cart={cart}
+                addToCart={addToCart}
+                removeFromCart={removeFromCart}
+              />
+            }
+          />
+        </Routes>
+      </Router>
     </div>
   );
 }
