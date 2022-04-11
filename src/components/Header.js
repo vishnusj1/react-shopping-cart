@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ quantity }) => {
   return (
     <header>
       <nav>
@@ -17,6 +17,7 @@ const Header = () => {
             <Link to="cart">
               <FontAwesomeIcon icon={faCartShopping} className="fa-xl" />
             </Link>
+            {quantity > 0 && <div className="badge">{quantity}</div>}
           </li>
         </ul>
       </nav>
