@@ -43,23 +43,28 @@ const Cart = ({ cart, addToCart, removeFromCart }) => {
       <div className="cartHeader">
         <h2>Your Cart</h2>
       </div>
-      <div className="cartBody">
-        <div className="cartItems">
-          <ul>{itemsList}</ul>
-        </div>
-        {cart.length > 0 ? (
+      {cart.length > 0 ? (
+        <div className="cartBody">
+          <div className="cartItems">
+            <ul>{itemsList}</ul>
+          </div>
           <div className="summary">
             <div className="cartSummary">
               <h2>Summary</h2>
-              <h3>Total : $ {cartTotal}</h3>
+              <div className="subTotal">
+                <h3>Total : $ {cartTotal}</h3>
+              </div>
+              <div className="checkout">
+                <div className="checkoutButton">Checkout</div>
+              </div>
             </div>
           </div>
-        ) : (
-          <div className="cartEmpty">
-            <h3>No Items in your cart</h3>
-          </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="cartEmpty">
+          <h3>No Items in your cart</h3>
+        </div>
+      )}
     </div>
   );
 };
