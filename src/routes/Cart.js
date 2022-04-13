@@ -102,5 +102,5 @@ const QuantityController = ({ id, qty, increment, decrement }) => {
     </div>
   );
 };
-
+export {CartItem,QuantityController};
 export default Cart;
