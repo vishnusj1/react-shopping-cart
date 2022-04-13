@@ -55,7 +55,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename="/react-shopping-cart">
         <Header quantity={cartQuantity} />
         <Routes>
           <Route path="/" element={<HomePage />} />
